@@ -1,0 +1,18 @@
+version: '3'
+services:
+  java-spring:
+    build: .
+    container_name: java-spring
+    restart: always
+    ports:
+      - 8080:8080
+    tty: true
+    volumes:
+      - $HOME/Dev/Docker/vscode-remote/vscode-remote-spring:/workspaces
+    networks:
+      - remote-container_common-network
+#    depends_on:
+#      - postgresql
+networks:
+  remote-container_common-network:
+    external: true
